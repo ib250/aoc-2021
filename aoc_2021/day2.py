@@ -1,6 +1,6 @@
 import functools as fn
-from enum import Enum
 from dataclasses import dataclass, replace
+from enum import Enum
 from typing import Iterator, NewType, Tuple, TypedDict
 
 
@@ -9,7 +9,7 @@ class Position:
     horizontal: int
     depth: int
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return (
             f"Position({self.horizontal=}, "
             f"{self.depth=}, product={self.depth * self.horizontal})"

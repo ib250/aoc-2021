@@ -1,5 +1,5 @@
 import itertools
-from typing import Iterator
+from typing import Iterator, Tuple
 
 
 def load_input() -> Iterator[int]:
@@ -23,7 +23,7 @@ def solve_part1(seq: Iterator[int]) -> int:
 
 
 def solve_part2(seq: Iterator[int]) -> int:
-    def make_three_bin_sum(seq_in: Iterator[int]):
+    def make_three_bin_sum(seq_in: Iterator[int]) -> Iterator[int]:
         fst, snd, trd = itertools.tee(seq_in, 3)
         next(snd)
         next(trd)
