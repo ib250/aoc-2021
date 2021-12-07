@@ -3,6 +3,8 @@ from dataclasses import dataclass, replace
 from enum import Enum
 from typing import Iterator, NewType, Tuple, TypedDict
 
+from aoc_2021 import input_dir
+
 
 @dataclass(repr=False, frozen=True)
 class Position:
@@ -26,7 +28,7 @@ Instruction = Tuple[InstructionT, int]
 
 
 def load_input() -> Iterator[Instruction]:
-    with open("../inputs/day2/input.txt") as f:
+    with open(input_dir / "day2/input.txt") as f:
         for intruction_t, unit_str in map(str.split, f):
             yield (InstructionT(intruction_t), int(unit_str))
 

@@ -1,6 +1,9 @@
 import itertools
+import pathlib as p
 from dataclasses import dataclass
-from typing import Callable, Iterator, TypedDict, Counter
+from typing import Callable, Counter, Iterator, TypedDict
+
+from aoc_2021 import input_dir
 
 
 @dataclass(repr=False)
@@ -59,7 +62,9 @@ class LifeSupportRating:
 BitFilter = Callable[[Counter[str], int, BitSequence], bool]
 
 
-def get_counter_at_position(*, seq: Iterator[BitSequence], nbits: int, position: int) -> Counter[str]:
+def get_counter_at_position(
+    *, seq: Iterator[BitSequence], nbits: int, position: int
+) -> Counter[str]:
     slice_ = list(transpose(seq, nbits=nbits))[position]
     return Counter[str](slice_)
 
@@ -120,7 +125,7 @@ class FixedSizeBitSequence(TypedDict):
 
 def load_input() -> FixedSizeBitSequence:
     def iter_() -> Iterator[str]:
-        with open("../inputs/day3/input.txt") as f:
+        with open(input_dir / "day3/input.txt") as f:
             for line in f:
                 yield line.strip()
 

@@ -1,9 +1,11 @@
 import itertools
 from typing import Iterator, Tuple
 
+from aoc_2021 import input_dir
+
 
 def load_input() -> Iterator[int]:
-    with open("../inputs/day1/part1.txt") as f:
+    with open(input_dir / "day1/part1.txt") as f:
         for line in f:
             yield int(line)
 
